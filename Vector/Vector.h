@@ -64,7 +64,7 @@ template<typename T>
 Vector<T>::Vector(const Vector<T>& a)              // copy constructor (deep copy) 									
 	: _size(a._size), _capacity(a._size + EXTRA)   // initializing list is more cost-efficient								
 {
-	_elem = new T[_capacity];
+	_elem = new T[_capacity];                      // if T is a string, new string [3] = _size(size_t type, 4 bytes), _elem(pointer type, 4 bytes); _size(4 bytes), _elem(4 bytes); _size(4 bytes), _elem(4 bytes).  
 	for (size_t i = 0; i < a._size; ++i) {
 		_elem[i] = a._elem[i];
 	}
